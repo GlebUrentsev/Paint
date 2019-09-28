@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +13,21 @@ namespace Paint
 {
     public partial class Canvas : Form
     {
-        private int oldX, oldY;
         private Bitmap bmp;
-        Point frs = new Point();
+        Point location = new Point();
         public Canvas()
         {
             InitializeComponent();
             bmp = new Bitmap(ClientSize.Width, ClientSize.Height);
+            pictureBox1.Image = bmp;
+        }
+        public Canvas(String FileName)
+        {
+            InitializeComponent();
+            bmp = new Bitmap(FileName);
+            Graphics g = Graphics.FromImage(bmp);
+            pictureBox1.Width = bmp.Width;
+            pictureBox1.Height = bmp.Height;
             pictureBox1.Image = bmp;
         }
 
@@ -30,12 +39,15 @@ namespace Paint
                     if (e.Button == MouseButtons.Left)
                     {
                         var g = Graphics.FromImage(bmp);
-                        g.DrawLine(new Pen(MainWindow.CurrentColor, MainWindow.width), oldX, oldY, e.X, e.Y);
-                        oldX = e.X;
-                        oldY = e.Y;
+                        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                        g.DrawLine(new Pen(MainWindow.CurrentColor, MainWindow.width), location.X, location.Y, e.X, e.Y);
+                        location.X = e.X;
+                        location.Y = e.Y;
                         pictureBox1.Invalidate();
+                        g.Dispose();                       
                     }
-                    break;
+                    break;             
             }
             var parent = MdiParent as MainWindow;
             parent.toolStripStatusLabel1.Text = $"X:{e.X} Y:{e.Y}";
@@ -50,13 +62,52 @@ namespace Paint
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            frs = e.Location;
             if (e.Button == MouseButtons.Left)
             {
-                oldX = e.X;
-                oldY = e.Y;
+                location = e.Location;
             }
         }
+
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            switch (MainWindow.checked_info)
+            {
+                case "Elipse":
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        var g = Graphics.FromImage(bmp);
+                        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                        g.DrawEllipse(new Pen(MainWindow.CurrentColor, MainWindow.width), location.X, location.Y, e.X - location.X, e.Y - location.Y);
+                        pictureBox1.Invalidate();
+                    }
+                    break;
+                case "rectangle":
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        var g = Graphics.FromImage(bmp);
+                        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                        g.DrawRectangle(new Pen(MainWindow.CurrentColor, MainWindow.width), location.X, location.Y, e.X - location.X, e.Y - location.Y);
+                        pictureBox1.Invalidate();
+                        g.Dispose();
+                    }
+                    break;
+
+                case "Line":
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        var g = Graphics.FromImage(bmp);
+                        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                        g.DrawLine(new Pen(MainWindow.CurrentColor, MainWindow.width), location.X, location.Y, e.X, e.Y);
+                        pictureBox1.Invalidate();
+                    }
+                    break;
+            }
+        }
+
 
         public int CanvasWidth
         {
@@ -73,29 +124,6 @@ namespace Paint
                 g.DrawImage(bmp, new Point(0, 0));
                 bmp = tbmp;
                 pictureBox1.Image = bmp;
-            }
-        }
-
-        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
-        {
-            switch (MainWindow.checked_info)
-            {
-                case "Elipse":
-                    if (e.Button == MouseButtons.Left)
-                    {
-                        var g = Graphics.FromImage(bmp);
-                        g.DrawEllipse(new Pen(MainWindow.CurrentColor, MainWindow.width), frs.X, frs.Y, e.X - frs.X, e.Y - frs.Y);
-                        pictureBox1.Invalidate();
-                    }
-                    break;
-                case "rectangle":
-                    if (e.Button == MouseButtons.Left)
-                    {
-                        var g = Graphics.FromImage(bmp);
-                        g.DrawRectangle(new Pen(MainWindow.CurrentColor, MainWindow.width), frs.X, frs.Y, e.X - frs.X, e.Y - frs.Y);
-                        pictureBox1.Invalidate();
-                    }
-                    break;
             }
         }
 
@@ -117,5 +145,20 @@ namespace Paint
             }
         }
 
+        public void SaveAs()
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.AddExtension = true;
+            dlg.Filter = "Windows Bitmap (*.bmp)|*.bmp| Файлы JPEG (*.jpg)|*.jpg";
+            ImageFormat[] ff = { ImageFormat.Bmp, ImageFormat.Jpeg };
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                int width = Convert.ToInt32(pictureBox1.Width);
+                int height = Convert.ToInt32(pictureBox1.Height);
+                Bitmap bmp = new Bitmap(width, height);
+                pictureBox1.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                bmp.Save(dlg.FileName, ff[dlg.FilterIndex - 1]);
+            }
+        }
     }
 }

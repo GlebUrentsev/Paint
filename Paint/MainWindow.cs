@@ -74,6 +74,7 @@ namespace Paint
 
         private void ClearCanvas_btn_Click(object sender, EventArgs e)
         {
+            checked_info = "pen";
             CurrentColor = Color.White;
             width = 5;
         }
@@ -99,6 +100,29 @@ namespace Paint
             {
                 CurrentColor = colorDialog1.Color;
             }
+        }
+
+        private void LineBtn_Click(object sender, EventArgs e)
+        {
+            checked_info = "Line";
+        }
+
+        private void сохранитьКакToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ((Canvas)ActiveMdiChild).SaveAs();
+        }
+
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Windows Bitmap (*.bmp)|*.bmp| Файлы JPEG (*.jpeg, *.jpg)|*.jpeg;*.jpg|Все файлы ()*.*|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                Canvas frmChild = new Canvas(dlg.FileName);
+                frmChild.MdiParent = this;
+                frmChild.Show();
+            }
+
         }
     }
 }
