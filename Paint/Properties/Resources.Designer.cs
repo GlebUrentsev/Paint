@@ -103,6 +103,16 @@ namespace Paint.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap circleicon {
+            get {
+                object obj = ResourceManager.GetObject("circleicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap double_sided_eraser {
             get {
                 object obj = ResourceManager.GetObject("double-sided-eraser", resourceCulture);
@@ -156,6 +166,16 @@ namespace Paint.Properties {
         internal static System.Drawing.Bitmap Pen_5_icon {
             get {
                 object obj = ResourceManager.GetObject("Pen-5-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rectangle_icon {
+            get {
+                object obj = ResourceManager.GetObject("rectangle-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

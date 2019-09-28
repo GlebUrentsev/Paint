@@ -12,7 +12,8 @@ namespace Paint
     public partial class MainWindow : Form
     {
         public static Color CurrentColor { get; set; }
-        public static float width = 4;    
+        public static float width = 4;
+        public static string checked_info ="pen";
         public MainWindow()
         {
             InitializeComponent();
@@ -31,21 +32,7 @@ namespace Paint
             AboutPaint frm_about = new AboutPaint();
             frm_about.ShowDialog();
         }
-
-        private void зелёныйToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CurrentColor = Color.Green;
-        }
-
-        private void красныйToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CurrentColor = Color.Red;
-        }
-
-        private void синийToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CurrentColor = Color.Blue;
-        }
+     
 
         private void выходToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -89,6 +76,36 @@ namespace Paint
         {
             CurrentColor = Color.White;
             width = 5;
+        }
+
+        private void DrawElipse_Click(object sender, EventArgs e)
+        {
+            checked_info = "Elipse";
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            checked_info = "pen";
+        }
+
+        private void КрасныйЦвет_Click(object sender, EventArgs e)
+        {
+            CurrentColor = Color.Red;
+        }
+
+        private void ЗелёныйЦвет_Click(object sender, EventArgs e)
+        {
+            CurrentColor = Color.Green;
+        }
+
+        private void СинийЦвет_Click(object sender, EventArgs e)
+        {
+            CurrentColor = Color.Blue;
+        }
+
+        private void DrawRectangle_Click(object sender, EventArgs e)
+        {
+            checked_info = "rectangle";
         }
     }
 }
