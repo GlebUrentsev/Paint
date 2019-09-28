@@ -88,24 +88,17 @@ namespace Paint
             checked_info = "pen";
         }
 
-        private void КрасныйЦвет_Click(object sender, EventArgs e)
-        {
-            CurrentColor = Color.Red;
-        }
-
-        private void ЗелёныйЦвет_Click(object sender, EventArgs e)
-        {
-            CurrentColor = Color.Green;
-        }
-
-        private void СинийЦвет_Click(object sender, EventArgs e)
-        {
-            CurrentColor = Color.Blue;
-        }
-
         private void DrawRectangle_Click(object sender, EventArgs e)
         {
             checked_info = "rectangle";
+        }
+
+        private void Палитра_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                CurrentColor = colorDialog1.Color;
+            }
         }
     }
 }

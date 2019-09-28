@@ -37,20 +37,22 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.widthTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.ClearCanvas_btn = new System.Windows.Forms.ToolStripButton();
             this.DrawRectangle = new System.Windows.Forms.ToolStripButton();
             this.DrawElipse = new System.Windows.Forms.ToolStripButton();
-            this.КрасныйЦвет = new System.Windows.Forms.ToolStripButton();
-            this.ЗелёныйЦвет = new System.Windows.Forms.ToolStripButton();
-            this.СинийЦвет = new System.Windows.Forms.ToolStripButton();
+            this.ClearCanvas_btn = new System.Windows.Forms.ToolStripButton();
+            this.Палитра = new System.Windows.Forms.ToolStripButton();
             this.новыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,9 +61,6 @@
             this.размерХолстаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -138,9 +137,7 @@
             this.widthTextBox,
             this.toolStripSeparator3,
             this.toolStripLabel2,
-            this.КрасныйЦвет,
-            this.ЗелёныйЦвет,
-            this.СинийЦвет});
+            this.Палитра});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(685, 25);
@@ -151,6 +148,26 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripLabel1
             // 
@@ -168,11 +185,6 @@
             this.widthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.widthTextBox_KeyPress);
             this.widthTextBox.TextChanged += new System.EventHandler(this.widthTextBox_TextChanged_1);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -180,10 +192,10 @@
             // 
             // toolStripLabel2
             // 
-            this.toolStripLabel2.Margin = new System.Windows.Forms.Padding(60, 1, 0, 2);
+            this.toolStripLabel2.Margin = new System.Windows.Forms.Padding(30, 1, 0, 2);
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(54, 22);
-            this.toolStripLabel2.Text = "Палитра";
+            this.toolStripLabel2.Size = new System.Drawing.Size(49, 22);
+            this.toolStripLabel2.Text = "Цвет ->";
             // 
             // statusStrip1
             // 
@@ -210,16 +222,6 @@
             this.toolStripButton4.Text = "toolStripButton4";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
-            // ClearCanvas_btn
-            // 
-            this.ClearCanvas_btn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ClearCanvas_btn.Image = global::Paint.Properties.Resources.double_sided_eraser;
-            this.ClearCanvas_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ClearCanvas_btn.Name = "ClearCanvas_btn";
-            this.ClearCanvas_btn.Size = new System.Drawing.Size(23, 22);
-            this.ClearCanvas_btn.Text = "toolStripButton1";
-            this.ClearCanvas_btn.Click += new System.EventHandler(this.ClearCanvas_btn_Click);
-            // 
             // DrawRectangle
             // 
             this.DrawRectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -240,35 +242,25 @@
             this.DrawElipse.Text = "toolStripButton1";
             this.DrawElipse.Click += new System.EventHandler(this.DrawElipse_Click);
             // 
-            // КрасныйЦвет
+            // ClearCanvas_btn
             // 
-            this.КрасныйЦвет.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.КрасныйЦвет.Image = global::Paint.Properties.Resources.Circle_icon_red;
-            this.КрасныйЦвет.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.КрасныйЦвет.Name = "КрасныйЦвет";
-            this.КрасныйЦвет.Size = new System.Drawing.Size(23, 22);
-            this.КрасныйЦвет.Text = "toolStripButton1";
-            this.КрасныйЦвет.Click += new System.EventHandler(this.КрасныйЦвет_Click);
+            this.ClearCanvas_btn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ClearCanvas_btn.Image = global::Paint.Properties.Resources.double_sided_eraser;
+            this.ClearCanvas_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ClearCanvas_btn.Name = "ClearCanvas_btn";
+            this.ClearCanvas_btn.Size = new System.Drawing.Size(23, 22);
+            this.ClearCanvas_btn.Text = "toolStripButton1";
+            this.ClearCanvas_btn.Click += new System.EventHandler(this.ClearCanvas_btn_Click);
             // 
-            // ЗелёныйЦвет
+            // Палитра
             // 
-            this.ЗелёныйЦвет.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ЗелёныйЦвет.Image = global::Paint.Properties.Resources.Trafficlight_green_icon;
-            this.ЗелёныйЦвет.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ЗелёныйЦвет.Name = "ЗелёныйЦвет";
-            this.ЗелёныйЦвет.Size = new System.Drawing.Size(23, 22);
-            this.ЗелёныйЦвет.Text = "toolStripButton2";
-            this.ЗелёныйЦвет.Click += new System.EventHandler(this.ЗелёныйЦвет_Click);
-            // 
-            // СинийЦвет
-            // 
-            this.СинийЦвет.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.СинийЦвет.Image = global::Paint.Properties.Resources.Circle_icon;
-            this.СинийЦвет.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.СинийЦвет.Name = "СинийЦвет";
-            this.СинийЦвет.Size = new System.Drawing.Size(23, 22);
-            this.СинийЦвет.Text = "toolStripButton3";
-            this.СинийЦвет.Click += new System.EventHandler(this.СинийЦвет_Click);
+            this.Палитра.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Палитра.Image = global::Paint.Properties.Resources.palette_icon;
+            this.Палитра.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Палитра.Name = "Палитра";
+            this.Палитра.Size = new System.Drawing.Size(23, 22);
+            this.Палитра.Text = "toolStripButton1";
+            this.Палитра.Click += new System.EventHandler(this.Палитра_Click);
             // 
             // новыйToolStripMenuItem
             // 
@@ -341,21 +333,6 @@
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,13 +389,12 @@
         private System.Windows.Forms.ToolStripButton DrawElipse;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripButton КрасныйЦвет;
-        private System.Windows.Forms.ToolStripButton ЗелёныйЦвет;
-        private System.Windows.Forms.ToolStripButton СинийЦвет;
         private System.Windows.Forms.ToolStripButton DrawRectangle;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripButton Палитра;
     }
 }
 
