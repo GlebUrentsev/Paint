@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,11 +20,13 @@ namespace Paint
         {
             InitializeComponent();
         }
-
+        static int indexOfCanvas = 0;
         private void новыйToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CurrentColor = Color.Black;
             var frmChild = new Canvas();
+            indexOfCanvas++;
+            frmChild.Text = $"Рисовалка {indexOfCanvas}";
             frmChild.MdiParent = this;
             frmChild.Show();
         }
@@ -36,6 +40,14 @@ namespace Paint
 
         private void выходToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            if (File.Exists(Canvas.file_saved_path))
+            {
+                ((Canvas)ActiveMdiChild).Save();
+            }
+            else
+            {
+                ((Canvas)ActiveMdiChild).SaveAs();
+            }
             Application.Exit();
         }
 
@@ -49,13 +61,6 @@ namespace Paint
             }
         }
 
-        private void widthTextBox_TextChanged_1(object sender, EventArgs e)
-        {
-            if (widthTextBox.Text != "")
-            {
-                width = float.Parse(widthTextBox.Text);
-            }
-        }
 
         private void рисунокToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -81,16 +86,19 @@ namespace Paint
 
         private void DrawElipse_Click(object sender, EventArgs e)
         {
+            CurrentColor = Color.Black;
             checked_info = "Elipse";
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
+            CurrentColor = Color.Black;
             checked_info = "pen";
         }
 
         private void DrawRectangle_Click(object sender, EventArgs e)
         {
+            CurrentColor = Color.Black;
             checked_info = "rectangle";
         }
 
@@ -123,6 +131,27 @@ namespace Paint
                 frmChild.Show();
             }
 
+        }
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(Canvas.file_saved_path))
+            {
+                ((Canvas)ActiveMdiChild).Save();
+            }
+
+            else
+            {
+                ((Canvas)ActiveMdiChild).SaveAs();
+            }
+        }
+
+        private void WidthOfPen_TextChanged(object sender, EventArgs e)
+        {
+            if (WidthOfPen.Text == "") width = width;
+            else
+            {
+                width = float.Parse(WidthOfPen.Text);
+            }
         }
     }
 }
