@@ -21,7 +21,7 @@ namespace Paint
         {
             char number = e.KeyChar;
 
-            if (!Char.IsDigit(number))
+            if (!Char.IsDigit(number) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -31,7 +31,7 @@ namespace Paint
         {
             char number = e.KeyChar;
 
-            if (!Char.IsDigit(number))
+            if (!Char.IsDigit(number) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }

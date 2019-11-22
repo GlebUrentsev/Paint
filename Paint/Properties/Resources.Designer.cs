@@ -63,6 +63,16 @@ namespace Paint.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3d {
+            get {
+                object obj = ResourceManager.GetObject("3d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _new {
             get {
                 object obj = ResourceManager.GetObject("new", resourceCulture);
@@ -203,6 +213,16 @@ namespace Paint.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pentagon_outline_shape {
+            get {
+                object obj = ResourceManager.GetObject("pentagon-outline-shape", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rectangle_icon {
             get {
                 object obj = ResourceManager.GetObject("rectangle-icon", resourceCulture);
@@ -246,6 +266,26 @@ namespace Paint.Properties {
         internal static System.Drawing.Bitmap Trafficlight_green_icon {
             get {
                 object obj = ResourceManager.GetObject("Trafficlight-green-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap triangle_outline_variant {
+            get {
+                object obj = ResourceManager.GetObject("triangle-outline-variant", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wiping_swipe_for_floors {
+            get {
+                object obj = ResourceManager.GetObject("wiping-swipe-for-floors", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

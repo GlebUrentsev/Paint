@@ -133,14 +133,26 @@
   <data name="double-sided-eraser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\double-sided-eraser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Arrow-Circle-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arrow-Circle-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sign-out-option" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sign-out-option.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pentagon-outline-shape" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pentagon-outline-shape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="circleicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circleicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="wiping-swipe-for-floors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wiping-swipe-for-floors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="palette-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\palette-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="triangle-outline-variant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\triangle-outline-variant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open-book1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open-book1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,7 +184,7 @@
   <data name="rectangle-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rectangle-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Arrow-Circle-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arrow-Circle-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="3d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

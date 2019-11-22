@@ -84,24 +84,32 @@ namespace Paint
             width = 5;
         }
 
+        private void Triangle_Click(object sender, EventArgs e)
+        {
+            checked_info = "Triangle";
+        }
         private void DrawElipse_Click(object sender, EventArgs e)
         {
-            CurrentColor = Color.Black;
             checked_info = "Elipse";
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            CurrentColor = Color.Black;
             checked_info = "pen";
         }
 
         private void DrawRectangle_Click(object sender, EventArgs e)
         {
-            CurrentColor = Color.Black;
             checked_info = "rectangle";
         }
-
+        private void Pentagon_Click(object sender, EventArgs e)
+        {
+            checked_info = "pentagon";
+        }
+        private void Sizible_square_Click(object sender, EventArgs e)
+        {
+            checked_info = "3d_square";
+        }
         private void Палитра_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -118,6 +126,7 @@ namespace Paint
         private void сохранитьКакToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ((Canvas)ActiveMdiChild).SaveAs();
+            ((Canvas)ActiveMdiChild).Text = Canvas.file_saved_path;
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,22 +135,32 @@ namespace Paint
             dlg.Filter = "Windows Bitmap (*.bmp)|*.bmp| Файлы JPEG (*.jpeg, *.jpg)|*.jpeg;*.jpg|Все файлы ()*.*|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
+                CurrentColor = Color.Black;
                 Canvas frmChild = new Canvas(dlg.FileName);
                 frmChild.MdiParent = this;
+                frmChild.Text = dlg.FileName;
+                
                 frmChild.Show();
             }
 
         }
+        //TO FIX
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (File.Exists(Canvas.file_saved_path))
+            string path = ((Canvas)ActiveMdiChild).Text;
+            MessageBox.Show(path);
+            if (File.Exists(path))
             {
+                MessageBox.Show("exist");
+                Canvas.file_saved_path = ((Canvas)ActiveMdiChild).Text;
+                MessageBox.Show(Canvas.file_saved_path);
                 ((Canvas)ActiveMdiChild).Save();
             }
-
             else
             {
+                MessageBox.Show("not_exist");
                 ((Canvas)ActiveMdiChild).SaveAs();
+                ((Canvas)ActiveMdiChild).Text = Canvas.file_saved_path;
             }
         }
 
@@ -152,6 +171,36 @@ namespace Paint
             {
                 width = float.Parse(WidthOfPen.Text);
             }
+        }
+
+        private void каскадToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void arrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.ArrangeIcons);
+        }
+
+        private void tileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void tileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void CleanAll_Click(object sender, EventArgs e)
+        {
+            ((Canvas)ActiveMdiChild).CleanAll();
+        }
+
+        private void чёрнобелыйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ((Canvas)ActiveMdiChild).ToGrayScale();
         }
     }
 }
