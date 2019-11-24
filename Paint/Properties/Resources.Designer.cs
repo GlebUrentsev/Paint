@@ -93,6 +93,16 @@ namespace Paint.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Actions_fill_color_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions-fill-color-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Arrow_Circle_icon {
             get {
                 object obj = ResourceManager.GetObject("Arrow-Circle-icon", resourceCulture);
@@ -256,6 +266,16 @@ namespace Paint.Properties {
         internal static System.Drawing.Bitmap sign_out_option {
             get {
                 object obj = ResourceManager.GetObject("sign-out-option", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star_icon {
+            get {
+                object obj = ResourceManager.GetObject("star-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

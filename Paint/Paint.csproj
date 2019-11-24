@@ -64,6 +64,7 @@
     <Compile Include="CanvasSize.Designer.cs">
       <DependentUpon>CanvasSize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Color_matrix.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +176,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-fill-color-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

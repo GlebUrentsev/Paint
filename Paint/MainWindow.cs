@@ -14,11 +14,15 @@ namespace Paint
     public partial class MainWindow : Form
     {
         public static Color CurrentColor { get; set; }
-        public static float width = 4;
+        public static int width = 4;
         public static string checked_info ="pen";
+        public static bool IsOpen = false;
+        public static int CountForms = 0;
         public MainWindow()
         {
             InitializeComponent();
+            сохранитьToolStripMenuItem.Enabled = false;
+            сохранитьКакToolStripMenuItem.Enabled = false;
         }
         static int indexOfCanvas = 0;
         private void новыйToolStripMenuItem_Click(object sender, EventArgs e)
@@ -29,6 +33,10 @@ namespace Paint
             frmChild.Text = $"Рисовалка {indexOfCanvas}";
             frmChild.MdiParent = this;
             frmChild.Show();
+            IsOpen = true;
+            сохранитьToolStripMenuItem.Enabled = true;
+            сохранитьКакToolStripMenuItem.Enabled = true;
+            CountForms++;
         }
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)//кнопка о программе
@@ -126,7 +134,10 @@ namespace Paint
         private void сохранитьКакToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ((Canvas)ActiveMdiChild).SaveAs();
-            ((Canvas)ActiveMdiChild).Text = Canvas.file_saved_path;
+            if (Canvas.saved == true)
+            {
+                ((Canvas)ActiveMdiChild).Text = Canvas.file_saved_path;
+            }
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -138,9 +149,12 @@ namespace Paint
                 CurrentColor = Color.Black;
                 Canvas frmChild = new Canvas(dlg.FileName);
                 frmChild.MdiParent = this;
-                frmChild.Text = dlg.FileName;
-                
+                frmChild.Text = dlg.FileName;            
                 frmChild.Show();
+                сохранитьToolStripMenuItem.Enabled = true;
+                сохранитьКакToolStripMenuItem.Enabled = true;
+                CountForms++;
+                
             }
 
         }
@@ -163,13 +177,12 @@ namespace Paint
                 ((Canvas)ActiveMdiChild).Text = Canvas.file_saved_path;
             }
         }
-
         private void WidthOfPen_TextChanged(object sender, EventArgs e)
         {
             if (WidthOfPen.Text == "") width = width;
             else
             {
-                width = float.Parse(WidthOfPen.Text);
+                width = int.Parse(WidthOfPen.Text);
             }
         }
 
@@ -201,6 +214,51 @@ namespace Paint
         private void чёрнобелыйToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ((Canvas)ActiveMdiChild).ToGrayScale();
+        }
+
+        private void FillFigure_Click(object sender, EventArgs e)
+        {
+            checked_info = "fill_figure";
+        }
+
+        public void DeactivateButtons()
+        {
+            сохранитьToolStripMenuItem.Enabled = false;
+            сохранитьКакToolStripMenuItem.Enabled = false;
+        }
+
+        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CountForms == 0 )
+            {
+                сохранитьToolStripMenuItem.Enabled = false;
+                сохранитьКакToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                сохранитьToolStripMenuItem.Enabled = true;
+                сохранитьКакToolStripMenuItem.Enabled = true;
+            }
+        }
+
+        private void размытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ((Canvas)ActiveMdiChild).MakeWorth();
+        }
+
+        private void повыситьРезкостьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ((Canvas)ActiveMdiChild).MakeBetter();
+        }
+
+        private void отразитьПоГоризонталиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ((Canvas)ActiveMdiChild).Rotate();
+        }
+
+        private void StarButton_Click(object sender, EventArgs e)
+        {
+            checked_info = "star";
         }
     }
 }
